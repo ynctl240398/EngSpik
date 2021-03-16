@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\EngSpik\\BackEnd\\BackEnd.csproj": {}
+    "/Users/ilw/tuannd/EngSpik/BackEnd/BackEnd.csproj": {}
   },
   "projects": {
-    "D:\\EngSpik\\BackEnd\\BackEnd.csproj": {
+    "/Users/ilw/tuannd/EngSpik/BackEnd/BackEnd.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\EngSpik\\BackEnd\\BackEnd.csproj",
+        "projectUniqueName": "/Users/ilw/tuannd/EngSpik/BackEnd/BackEnd.csproj",
         "projectName": "BackEnd",
-        "projectPath": "D:\\EngSpik\\BackEnd\\BackEnd.csproj",
-        "packagesPath": "C:\\Users\\ynctl\\.nuget\\packages\\",
-        "outputPath": "D:\\EngSpik\\BackEnd\\obj\\",
+        "projectPath": "/Users/ilw/tuannd/EngSpik/BackEnd/BackEnd.csproj",
+        "packagesPath": "/Users/ilw/.nuget/packages/",
+        "outputPath": "/Users/ilw/tuannd/EngSpik/BackEnd/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ynctl\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/Users/ilw/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.0"
@@ -24,6 +24,7 @@
         },
         "frameworks": {
           "netcoreapp3.0": {
+            "targetAlias": "netcoreapp3.0",
             "projectReferences": {}
           }
         },
@@ -35,6 +36,17 @@
       },
       "frameworks": {
         "netcoreapp3.0": {
+          "targetAlias": "netcoreapp3.0",
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.0.78, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.4, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -45,6 +57,16 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.0.1, 3.0.1]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[3.0.0, 3.0.0]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -53,7 +75,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.200/RuntimeIdentifierGraph.json"
         }
       }
     }
