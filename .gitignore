@@ -20,3 +20,4 @@ npm-debug.log*
 /FrontEnd/node_modules
 /FrontEnd/dist
 /.vscode
+/BackEnd/bin

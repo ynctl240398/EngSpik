@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "25+jU6vkLdRz61CapdPYTH8/AmWfOtsKH3eI3nS125v7pewbTz/rLKNu1TAmq4qzQuJIoAkYKbfR1Lv0OM6k3Q==",
+  "success": true,
+  "projectFilePath": "/Users/ilw/tuannd/EngSpik/BackEnd/BackEnd.csproj",
+  "expectedPackageFiles": [
+    "/Users/ilw/.nuget/packages/microsoft.netcore.app.ref/3.0.0/microsoft.netcore.app.ref.3.0.0.nupkg.sha512",
+    "/Users/ilw/.nuget/packages/microsoft.aspnetcore.app.ref/3.0.1/microsoft.aspnetcore.app.ref.3.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
