@@ -37,6 +37,16 @@
       "frameworks": {
         "netcoreapp3.0": {
           "targetAlias": "netcoreapp3.0",
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.0.78, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.4, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
