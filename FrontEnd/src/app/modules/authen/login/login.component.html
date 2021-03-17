@@ -1,0 +1,111 @@
+<div class="content-login">
+  <div class="form-login">
+    <div class="form-content">
+      <form
+        nz-form
+        [nzLayout]="loginForm.get('formLayout')?.value"
+        [formGroup]="loginForm"
+        (ngSubmit)="login()"
+        class="login-form"
+      >
+        <nz-form-item>
+          <nz-form-control [nzSpan]="24">
+            <nz-form-label [nzNoColon]="true" style="line-height: 20px">
+              <span>Sign into your account</span>
+            </nz-form-label>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control [nzSpan]="24" nzErrorTip="Email address">
+            <input
+              nzSize="large"
+              nz-input
+              formControlName="email"
+              placeholder="Emall address"
+            />
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control [nzSpan]="24" nzErrorTip="Email address">
+            <nz-input-group [nzSuffix]="suffixTemplate" nzSize="large">
+              <input
+                [type]="passwordVisible ? 'text' : 'password'"
+                nz-input
+                formControlName="password"
+                placeholder="Password"
+              />
+            </nz-input-group>
+            <ng-template #suffixTemplate>
+              <i
+                nz-icon
+                [nzType]="passwordVisible ? 'eye-invisible' : 'eye'"
+                (click)="passwordVisible = !passwordVisible"
+              ></i>
+            </ng-template>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control
+            [nzSpan]="24"
+            style="display: flex; justify-content: flex-end"
+          >
+            <a> Forgot password? </a>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control [nzSpan]="24">
+            <button nz-button class="button-login">Sign in</button>
+          </nz-form-control>
+        </nz-form-item>
+      </form>
+      <div nz-row class="line-custom">
+        <div nz-col nzSpan="10">
+          <hr />
+        </div>
+        <div nz-col nzSpan="4" style="text-align: center">
+          <span>or</span>
+        </div>
+        <div nz-col nzSpan="10">
+          <hr />
+        </div>
+      </div>
+      <div nz-row class="another-login">
+        <div nz-col nzSpan="24">
+          <button
+            class="button-login-another"
+            nz-button
+            (click)="loginWithFb()"
+            [nzLoading]="isLoginWithFb"
+          >
+            <img src="../../../../assets/images/facebook.svg" alt="" />Continue
+            with Facebook
+          </button>
+        </div>
+        <div nz-col nzSpan="24">
+          <button
+            class="button-login-another"
+            nz-button
+            (click)="loginWithEmail()"
+            [nzLoading]="isLoginWithEmail"
+          >
+            <img
+              style="margin-bottom: 3px"
+              src="../../../../assets/images/email.svg"
+              alt=""
+            />
+            Continue with Google
+          </button>
+        </div>
+      </div>
+      <div nz-row class="sign-up">
+        <span
+          >Don’t have an account?
+          <a>Sign up</a>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="image-login">
+    <img src="../../../../assets/images/login.svg" alt="" />
+  </div>
+</div>
