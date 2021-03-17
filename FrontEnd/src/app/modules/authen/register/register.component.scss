@@ -1,0 +1,105 @@
+:host {
+  .content-login {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    background: #f8f8f8;
+
+    .form-login {
+      height: 100%;
+      width: 65%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .form-content {
+        width: 40%;
+        .login-form {
+          nz-form-label {
+            span {
+              font-weight: 500;
+              font-size: 26px;
+            }
+          }
+          .button-login {
+            width: 100%;
+            height: 58px;
+            background-color: #f2c94c;
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: bold;
+          }
+          input {
+            height: 58px;
+            font-size: 16px;
+            border-radius: 10px;
+          }
+        }
+        .line-custom {
+          align-items: center;
+          display: flex;
+        }
+        .another-login {
+          margin: 1.5rem 0 3.5rem;
+          .button-login-another {
+            border-radius: 10px;
+            width: 100%;
+            height: 58px;
+            font-size: 16px;
+            margin: 0.5rem 0;
+            ::ng-deep span {
+              width: 100%;
+              text-align: left;
+              padding: 0 0 0 29px;
+              img {
+                margin-right: 53px;
+              }
+            }
+          }
+        }
+      }
+      .sign-up {
+        text-align: center;
+        span {
+          font-weight: bold;
+          font-size: 20px;
+        }
+      }
+    }
+
+    .image-login {
+      width: 35%;
+      height: 95%;
+      margin-top: auto;
+
+      img {
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 750px) {
+    .content-login {
+      display: block;
+
+      .form-login {
+        width: 100%;
+
+        .form-content {
+          width: 90%;
+        }
+      }
+
+      .image-login {
+        width: 100%;
+        height: 50%;
+      }
+    }
+  }
+
+  a {
+    text-decoration: none !important;
+  }
+}

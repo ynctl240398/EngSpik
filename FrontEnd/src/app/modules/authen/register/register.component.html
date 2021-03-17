@@ -3,16 +3,34 @@
     <div class="form-content">
       <form
         nz-form
-        [nzLayout]="loginForm.get('formLayout')?.value"
-        [formGroup]="loginForm"
-        (ngSubmit)="login()"
+        [nzLayout]="registerForm.get('formLayout')?.value"
+        [formGroup]="registerForm"
+        (ngSubmit)="signUp()"
         class="login-form"
       >
         <nz-form-item>
           <nz-form-control [nzSpan]="24">
             <nz-form-label [nzNoColon]="true" style="line-height: 20px">
-              <span>Sign into your account</span>
+              <span>Sign up</span>
             </nz-form-label>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control style="padding-right: 7px" [nzSpan]="12">
+            <input
+              nzSize="large"
+              nz-input
+              formControlName="firstName"
+              placeholder="Frist name"
+            />
+          </nz-form-control>
+          <nz-form-control style="padding-left: 7px" [nzSpan]="12">
+            <input
+              nzSize="large"
+              nz-input
+              formControlName="lastName"
+              placeholder="Last name"
+            />
           </nz-form-control>
         </nz-form-item>
         <nz-form-item>
@@ -25,8 +43,8 @@
             />
           </nz-form-control>
         </nz-form-item>
-        <nz-form-item>
-          <nz-form-control [nzSpan]="24" nzErrorTip="Email address">
+        <nz-form-item style="margin-bottom: 3rem">
+          <nz-form-control [nzSpan]="24">
             <nz-input-group [nzSuffix]="suffixTemplate" nzSize="large">
               <input
                 [type]="passwordVisible ? 'text' : 'password'"
@@ -42,19 +60,24 @@
                 (click)="passwordVisible = !passwordVisible"
               ></i>
             </ng-template>
+            <span style="font-size: 13px; line-height: 17px; color: #102dc7; margin-left: 10px;"
+              >Password must be > 8 characters long
+            </span>
           </nz-form-control>
         </nz-form-item>
-        <nz-form-item>
+        <!-- <nz-form-item>
           <nz-form-control
             [nzSpan]="24"
             style="display: flex; justify-content: flex-end"
           >
-            <a> Forgot password? </a>
+            <span style="font-size: 13px; line-height: 17px; color: #102dc7"
+              >Password must be > 8 characters long</span
+            >
           </nz-form-control>
-        </nz-form-item>
+        </nz-form-item> -->
         <nz-form-item>
           <nz-form-control [nzSpan]="24">
-            <button nz-button class="button-login">Sign in</button>
+            <button nz-button class="button-login">Sign up</button>
           </nz-form-control>
         </nz-form-item>
       </form>
@@ -100,12 +123,12 @@
       <div nz-row class="sign-up">
         <span
           >Don’t have an account?
-          <a [routerLink]="['/authen/register']">Sign up</a>
+          <a [routerLink]="['/authen/login']">Sign in</a>
         </span>
       </div>
     </div>
   </div>
   <div class="image-login">
-    <img src="../../../../assets/images/login.svg" alt="" />
+    <img src="../../../../assets/images/register.svg" alt="" />
   </div>
 </div>
