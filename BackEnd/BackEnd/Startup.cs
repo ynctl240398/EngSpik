@@ -16,6 +16,8 @@ namespace BackEnd
 {
     public class Startup
     {
+        public static readonly string CorsOrigins = "CorsOrigins";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -26,12 +28,21 @@ namespace BackEnd
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
-            services.AddControllers();
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "BackEnd", Version = "v1" });
-            });
+            services.AddControllers().AddNewtonsoftJson();
+            services.AddSwaggerDocument();
+            services.AddDbContext<EngSpik.EngSpikDbContext>();
+            services.AddCors(options => { options.AddPolicy(CorsOrigins,
+                     builder =>
+                     {
+                         builder
+                             .WithOrigins("http://localhost:4200")
+                             .AllowCredentials()
+                             .AllowAnyHeader()
+                             .AllowAnyMethod();
+                     }
+                    );
+                }
+            );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,8 +51,8 @@ namespace BackEnd
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "BackEnd v1"));
+                app.UseOpenApi();
+                app.UseSwaggerUi3();
             }
 
             app.UseHttpsRedirection();

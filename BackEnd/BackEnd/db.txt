@@ -1,0 +1,7 @@
+mysql
+dotnet ef dbcontext scaffold -c EngSpikDbContext -o EngSpik "Server=localhost;Database=EngSpik;User=root;Password=5910Nttl520;TreatTinyAsBoolean=true;" "Pomelo.EntityFrameworkCore.MySql" --force
+
+postgresql
+dotnet ef dbcontext scaffold -c AppDbContext -o App  "Host=139.99.27.192;Port=5442;Database=ilwpro-test;Username=postgres;Password=ilwdev" Npgsql.EntityFrameworkCore.PostgreSQL --force
+
+dotnet ef dbcontext scaffold -c IlwDbContext -o Ilw  "Host=139.99.27.192;Port=5442;Database=dump_prod;Username=postgres;Password=ilwdev" Npgsql.EntityFrameworkCore.PostgreSQL --force
