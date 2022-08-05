@@ -1,16 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Microsoft.OpenApi.Models;
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 
 namespace BackEnd
 {
@@ -29,19 +23,27 @@ namespace BackEnd
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers().AddNewtonsoftJson();
-            services.AddSwaggerDocument();
-            services.AddDbContext<EngSpik.EngSpikDbContext>();
-            services.AddCors(options => { options.AddPolicy(CorsOrigins,
-                     builder =>
-                     {
-                         builder
-                             .WithOrigins("http://localhost:4200")
-                             .AllowCredentials()
-                             .AllowAnyHeader()
-                             .AllowAnyMethod();
-                     }
-                    );
-                }
+            services.AddOpenApiDocument(c =>
+            {
+                c.DocumentName = "EngSpik";
+                c.Version = "v1.0.0.";
+                c.Title = "EngSpik";
+            });
+            services.AddDbContext<EngSpik.EngSpikDbContext>(options =>
+                options.UseMySql(Configuration.GetConnectionString("EngSpik"), new MySqlServerVersion(new System.Version(8, 0, 22)), mySqlOptions => mySqlOptions.CharSetBehavior(CharSetBehavior.NeverAppend)));
+            services.AddCors(options =>
+            {
+                options.AddPolicy(CorsOrigins,
+builder =>
+{
+    builder
+       .AllowAnyOrigin()
+       .AllowCredentials()
+       .AllowAnyHeader()
+       .AllowAnyMethod();
+}
+);
+            }
             );
         }
 

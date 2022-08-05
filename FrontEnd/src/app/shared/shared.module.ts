@@ -3,6 +3,7 @@ import { ModuleWithProviders, NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { LayoutModule } from "./layout/layout.module";
 
 @NgModule({
   declarations: [],
@@ -12,8 +13,9 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    LayoutModule,
   ],
-  exports: [NgZorroAntdModule, ReactiveFormsModule],
+  exports: [NgZorroAntdModule, ReactiveFormsModule, LayoutModule],
 })
 export class SharedModule {
   static forRoot(): ModuleWithProviders<SharedModule> {

@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
+import { RouterUrl } from "src/app/shared/core/constant";
 
 import { AuthenComponent } from "./authen.component";
 
@@ -10,16 +11,16 @@ const routes: Routes = [
     children: [
       {
         path: "",
-        redirectTo: "login",
+        redirectTo: RouterUrl.LOGIN,
         pathMatch: "full",
       },
       {
-        path: "login",
+        path: RouterUrl.LOGIN,
         loadChildren: () =>
           import("./login/login.module").then((m) => m.LoginModule),
       },
       {
-        path: "register",
+        path: RouterUrl.REGISTER,
         loadChildren: () =>
           import("./register/register.module").then((m) => m.RegisterModule),
       },

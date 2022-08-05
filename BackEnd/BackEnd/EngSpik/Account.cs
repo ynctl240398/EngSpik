@@ -23,7 +23,7 @@ namespace BackEnd.EngSpik
 
         public uint Id { get; set; }
         public string FullName { get; set; }
-        public string Role { get; set; }
+        public int Role { get; set; }
         public string Avatar { get; set; }
         public DateTime? Birthday { get; set; }
         public string Phone { get; set; }

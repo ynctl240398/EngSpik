@@ -38,8 +38,7 @@ namespace BackEnd.EngSpik
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseMySql("server=localhost;database=EngSpik;user=root;password=5910Nttl520;treattinyasboolean=true", x => x.ServerVersion("8.0.23-mysql"));
+                optionsBuilder.UseMySql("server=localhost;database=EngSpik;user=root;password=5910Nttl520;treattinyasboolean=true", Microsoft.EntityFrameworkCore.ServerVersion.FromString("8.0.23-mysql"));
             }
         }
 
@@ -100,7 +99,7 @@ namespace BackEnd.EngSpik
 
                 entity.Property(e => e.Password)
                     .IsRequired()
-                    .HasColumnType("varchar(45)")
+                    .HasColumnType("varchar(150)")
                     .HasColumnName("password")
                     .HasCharSet("utf8mb4")
                     .HasCollation("utf8mb4_0900_ai_ci");
@@ -113,12 +112,7 @@ namespace BackEnd.EngSpik
 
                 entity.Property(e => e.Privated).HasColumnName("privated");
 
-                entity.Property(e => e.Role)
-                    .IsRequired()
-                    .HasColumnType("varchar(45)")
-                    .HasColumnName("role")
-                    .HasCharSet("utf8mb4")
-                    .HasCollation("utf8mb4_0900_ai_ci");
+                entity.Property(e => e.Role).HasColumnName("role");
 
                 entity.Property(e => e.Username)
                     .IsRequired()
